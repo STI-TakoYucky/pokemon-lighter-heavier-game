@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/STI-TakoYucky/pokemon-lighter-heavier-game/static/css/main.80d3f238.css",
-    "main.js": "/STI-TakoYucky/pokemon-lighter-heavier-game/static/js/main.c797213d.js",
-    "static/media/pokemon-bg-wallpaper.jpg": "/STI-TakoYucky/pokemon-lighter-heavier-game/static/media/pokemon-bg-wallpaper.648dee9175a0814bed96.jpg",
-    "static/media/Pokemon-Logo.png": "/STI-TakoYucky/pokemon-lighter-heavier-game/static/media/Pokemon-Logo.83869908a74033268ad4.png",
-    "index.html": "/STI-TakoYucky/pokemon-lighter-heavier-game/index.html",
-    "main.80d3f238.css.map": "/STI-TakoYucky/pokemon-lighter-heavier-game/static/css/main.80d3f238.css.map",
-    "main.c797213d.js.map": "/STI-TakoYucky/pokemon-lighter-heavier-game/static/js/main.c797213d.js.map"
+    "main.css": "/pokemon-lighter-heavier-game/static/css/main.999a7fd0.css",
+    "main.js": "/pokemon-lighter-heavier-game/static/js/main.a4b77cae.js",
+    "static/media/pokemon-bg-wallpaper.jpg": "/pokemon-lighter-heavier-game/static/media/pokemon-bg-wallpaper.648dee9175a0814bed96.jpg",
+    "static/media/Pokemon-Logo.png": "/pokemon-lighter-heavier-game/static/media/Pokemon-Logo.83869908a74033268ad4.png",
+    "index.html": "/pokemon-lighter-heavier-game/index.html",
+    "main.999a7fd0.css.map": "/pokemon-lighter-heavier-game/static/css/main.999a7fd0.css.map",
+    "main.a4b77cae.js.map": "/pokemon-lighter-heavier-game/static/js/main.a4b77cae.js.map"
   },
   "entrypoints": [
-    "static/css/main.80d3f238.css",
-    "static/js/main.c797213d.js"
+    "static/css/main.999a7fd0.css",
+    "static/js/main.a4b77cae.js"
   ]
 }
