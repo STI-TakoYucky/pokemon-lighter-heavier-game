@@ -12,6 +12,12 @@ body {
   background-image: url(./Assets/pokemon-bg-wallpaper.jpg);
 }
 
+@media only screen and (max-width: 640px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

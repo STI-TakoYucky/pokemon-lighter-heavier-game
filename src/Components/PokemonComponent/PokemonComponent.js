@@ -7,6 +7,7 @@ function PokemonComponent() {
     const [PrevPokemon, setPrevPokemon] = useState(null);
     const [NewPokemon, setNewPokemon] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [isPreloaderLoading, setPreloaderLoading] = useState(false);
     const [score, setScore] = useState(0);
     const [isShowingWeight, setShowWeight] = useState(false);
  
@@ -17,9 +18,10 @@ function PokemonComponent() {
 
 
     const handleFetchPokemon = () => {
-        
+        setShowWeight(false);
         //first fetch where you are just starting the game
         if(PrevPokemon == null) {
+            setPreloaderLoading(true);
         const response1 = axios.get(`https://pokeapi.co/api/v2/pokemon/${randomNumGenerator()}`)
             .then((response1) => {
                 setPrevPokemon(response1.data);
@@ -37,9 +39,11 @@ function PokemonComponent() {
             .catch((error) => {
                 console.log(error);
             });
+           
 
-        Promise.all([response1, response2])
+                Promise.all([response1, response2])
             .then(() => {
+                
                 setLoading(false);
             })
         } else {
@@ -57,6 +61,15 @@ function PokemonComponent() {
         }
     }
 
+    useEffect(() => {
+        
+            
+        setPreloaderLoading(false)
+        
+    }, [NewPokemon]);
+
+   
+
     const handlePokemonWeightChecker = (prevPokemon, newPokemon, userInput) => {
         console.log(prevPokemon);
         console.log(newPokemon);
@@ -64,11 +77,14 @@ function PokemonComponent() {
         if(prevPokemon < newPokemon && userInput == 'Lighter') {
             console.log("correct")
             setScore(score + 1);
-            handleFetchPokemon();
+
+            setShowWeight(true);
+
+
         } else if(prevPokemon > newPokemon && userInput == 'Heavier'){
             console.log("correct");
             setScore(score + 1);
-            handleFetchPokemon();
+            setShowWeight(true);
         } else {
             console.log("incorrect");
         }
@@ -77,25 +93,36 @@ function PokemonComponent() {
     return (
         <div className='flex z-50 items-center justify-evenly h-[100vh] text-lg'>
 
+            { isPreloaderLoading &&
+                <div className='Preloader fixed bg-black h-[100vh] w-[100vw] flex items-center justify-center'>
+                <h1 className='text-white'>Loading Game</h1>
+                </div>
+            }
+            
+            
             {!loading ? (
-                <div className='flex flex-col'>
-                    <div className='flex'>
+                <div className='flex flex-col w-[100%] px-10'>
+                    <div className='flex-col flex sm:flex-row justify-evenly'>
                         <div className='flex flex-col items-center'>
-                            <img src={PrevPokemon.sprites?.other?.['official-artwork']?.front_default} alt={PrevPokemon.name} />
+                        {isShowingWeight && <h1 className='text-white text-2xl font-bold'><span className='capitalize'>{PrevPokemon.name}</span> weighs {(PrevPokemon.weight) / 10} kg</h1>}
+                            <img src={PrevPokemon.sprites?.other?.['official-artwork']?.front_default} alt={PrevPokemon.name} className='w-[10rem] p-5 h-auto sm:w-[32rem]'/>
                             <h1 className='text-white text-3xl capitalize font-bold'>{PrevPokemon.name}</h1>
                         </div>
 
-                        <div className='text-white flex flex-col items-center'>
+                        <div className='text-white flex flex-col items-center justify-center p-5'>
                             <h2><span className='capitalize'>{PrevPokemon.name}</span> is</h2>
                             <div className='flex flex-col'>
                                 <button onClick={(e) => handlePokemonWeightChecker(PrevPokemon.weight, NewPokemon.weight, e.target.innerText)} className='px-[2rem] py-2 rounded-xl border-white border-2 my-5'>Lighter</button>
                                 <button onClick={(e) => handlePokemonWeightChecker(PrevPokemon.weight, NewPokemon.weight, e.target.innerText)} className='px-[2rem] py-2 rounded-xl border-white border-2 my-5'>Heavier</button>
                             </div>
                             <h2>than <span className='capitalize'>{NewPokemon.name}</span></h2>
+                            {isShowingWeight && <button onClick={handleFetchPokemon} className='text-black px-4 bg-green-400 py-3 rounded-md mt-10'>Continue</button>}
                         </div>
 
+
                         <div className='flex flex-col items-center'>
-                            <img src={NewPokemon.sprites?.other?.['official-artwork']?.front_default} alt={PrevPokemon.name} />
+                        {isShowingWeight && <h1 className='text-white text-2xl font-bold'><span className='capitalize'>{NewPokemon.name}</span> weighs {(NewPokemon.weight) / 10} kg</h1>}
+                            <img src={NewPokemon.sprites?.other?.['official-artwork']?.front_default} alt={NewPokemon.name} className='w-[10rem] p-5 h-auto sm:w-[32rem]'/>
                             <h1 className='text-white text-3xl capitalize font-bold'>{NewPokemon.name}</h1>
                         </div>
                     </div>
@@ -104,13 +131,10 @@ function PokemonComponent() {
                 : 
                 <div className='flex items-center justify-center h-[100vh] flex-col'>
                 <img className='w-[30rem] h-[auto]' src={logo}></img>
-                <h1 className='text-white text-[4rem] font-bold -mt-9'>Lighter or Heavier!</h1>
-                <button onClick={handleFetchPokemon} className='px-4 bg-green-400 py-3 rounded-md mt-5'>Start Game</button>
+                <h1 className='text-white text-5xl sm:text-[4rem] font-bold '>Lighter or Heavier!</h1>
+                <button onClick={handleFetchPokemon} className='px-4 bg-green-400 py-3 rounded-md mt-10'>Start Game</button>
             </div>
             }
-
-
-
 
         </div>
     )
