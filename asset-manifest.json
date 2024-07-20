@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pokemon-lighter-heavier-game/static/css/main.4fc4f9f8.css",
-    "main.js": "/pokemon-lighter-heavier-game/static/js/main.09d373cf.js",
+    "main.css": "/pokemon-lighter-heavier-game/static/css/main.c233c478.css",
+    "main.js": "/pokemon-lighter-heavier-game/static/js/main.9cf6d171.js",
     "static/media/pokemon-bg-wallpaper.jpg": "/pokemon-lighter-heavier-game/static/media/pokemon-bg-wallpaper.648dee9175a0814bed96.jpg",
     "static/media/Pokemon-Logo.png": "/pokemon-lighter-heavier-game/static/media/Pokemon-Logo.83869908a74033268ad4.png",
     "index.html": "/pokemon-lighter-heavier-game/index.html",
-    "main.4fc4f9f8.css.map": "/pokemon-lighter-heavier-game/static/css/main.4fc4f9f8.css.map",
-    "main.09d373cf.js.map": "/pokemon-lighter-heavier-game/static/js/main.09d373cf.js.map"
+    "main.c233c478.css.map": "/pokemon-lighter-heavier-game/static/css/main.c233c478.css.map",
+    "main.9cf6d171.js.map": "/pokemon-lighter-heavier-game/static/js/main.9cf6d171.js.map"
   },
   "entrypoints": [
-    "static/css/main.4fc4f9f8.css",
-    "static/js/main.09d373cf.js"
+    "static/css/main.c233c478.css",
+    "static/js/main.9cf6d171.js"
   ]
 }
