@@ -10,7 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url(./Assets/pokemon-bg-wallpaper.jpg);
-  object-fit: cover;
+  object-fit: contain;
   background-repeat: no-repeat;
 }
 
