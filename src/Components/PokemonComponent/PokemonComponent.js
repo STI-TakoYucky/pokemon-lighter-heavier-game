@@ -126,8 +126,7 @@ function PokemonComponent() {
     }
 
     return (
-        <div className='flex z-50 items-center justify-evenly h-[100vh] text-lg'>
-
+        <div className='flex items-center justify-evenly h-[100dvh] z-50 w[100%] text-lg bg-none relative'>
             { isPreloaderLoading &&
                 <div className='Preloader fixed bg-black h-[100vh] w-[100vw] flex items-center justify-center'>
                 <h1 className='text-white'>Loading Game</h1>
