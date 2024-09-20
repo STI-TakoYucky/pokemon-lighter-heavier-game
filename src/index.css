@@ -26,5 +26,5 @@ code {
   background-image: url(./Assets/pokemon-bg-wallpaper.jpg);
   object-fit: cover;
   background-repeat: no-repeat;
-  height: auto;
+  height: 100%;
 }
